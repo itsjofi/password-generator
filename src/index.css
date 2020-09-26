@@ -1,0 +1,7 @@
+body {
+  margin: 0;
+  font-family: 'Share Tech Mono', monospace;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #3b7f8d;
+}
