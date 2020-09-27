@@ -2,4 +2,6 @@
 
 Create random passwords.
 
-![Tool](https://github.com/joaoficanha/password-generator/blob/master/img/generator.png)
+<h1 align="center">
+    <img alt="Example" title="Example" src=".github/generator.png" width="700px" />
+</h1>
