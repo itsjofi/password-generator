@@ -8,17 +8,12 @@ export const Button = styled.button`
   font-size: 1rem;
   color: #fff;
   font-weight: 700;
-  background: #173f5f;
-
-  &:hover {
-    cursor: pointer;
-    background: #0d7377;
-    color: #eeeeee;
-  }
+  background: #080942;
+  cursor: pointer;
 `;
 
 export const Container = styled.div`
-  background: #eeeeee;
+  background: #080942;
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -29,11 +24,12 @@ export const Container = styled.div`
 export const Card = styled.div`
   display: flex;
   flex-direction: column;
-  background: #fff;
-  color: #000;
+  background: #221c69;
+  color: #fff;
   padding: 1rem;
   box-shadow: rgba(0, 0, 0, 0.06) 0px 3px 6px 0px;
   border-radius: 8px;
+  min-width: 350px;
 
   & > label {
     display: flex;
@@ -51,22 +47,26 @@ export const TextField = styled.div`
   box-sizing: border-box;
   display: flex;
   align-items: center;
-  background: #173f5f;
+  background: #080942;
 
   & > input {
+    width: 100%;
     padding: 1rem;
     border: none;
     outline: none;
     background: transparent;
-    color: #eeeeee;
+    color: #fff;
+    font-weight: 700;
+    font-size: 1rem;
   }
   & > div {
     margin: 8px;
-    & :hover {
-      cursor: pointer;
-    }
+    background: #221c69;
+    font-size: 25px;
+    color: #fff;
+    cursor: pointer;
     & > svg {
-      color: #eeeeee;
+      margin: 12px;
     }
   }
 `;

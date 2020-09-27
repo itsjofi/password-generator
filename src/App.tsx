@@ -3,7 +3,7 @@ import React from 'react';
 //UI
 import { Button, Container, Card, TextField } from './styles/App.styles';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faClipboard } from '@fortawesome/free-solid-svg-icons';
+import { faClipboard } from '@fortawesome/free-regular-svg-icons';
 
 //UTILS
 import { generatePassword } from './utils';
@@ -11,19 +11,33 @@ import { generatePassword } from './utils';
 const App = (): JSX.Element => {
   const [passwordLength, setPasswordLength] = React.useState(32);
 
-  const handleCheckbox = React.useCallback(
-    (event: React.ChangeEvent<HTMLInputElement>) => {
-      console.log('event', event.target.value);
-    },
-    []
-  );
-
   const copyToClipBoard = () => {
     const element = document.getElementById('password') as HTMLInputElement;
 
-    element.select();
-    element.setSelectionRange(0, passwordLength);
-    document.execCommand('copy');
+    if (element.value != '') {
+      element.select();
+      element.setSelectionRange(0, passwordLength);
+      document.execCommand('copy');
+      alert('Password copied to clipboard');
+    }
+  };
+
+  const handlePasswordGenerate = () => {
+    const input = document.getElementById('password') as HTMLInputElement;
+    const upperEl = document.getElementById('upper') as HTMLInputElement;
+    const lowerEl = document.getElementById('lower') as HTMLInputElement;
+    const numberEl = document.getElementById('number') as HTMLInputElement;
+    const symbolEl = document.getElementById('symbol') as HTMLInputElement;
+
+    if (input) {
+      input.value = generatePassword(
+        passwordLength,
+        lowerEl.checked,
+        upperEl.checked,
+        numberEl.checked,
+        symbolEl.checked
+      );
+    }
   };
 
   return (
@@ -47,63 +61,28 @@ const App = (): JSX.Element => {
           <input
             type="range"
             max={32}
-            min={1}
+            min={4}
             value={passwordLength}
             onChange={(event) => setPasswordLength(+event.target.value)}
           />
         </div>
         <label>
           Include Uppercase
-          <input
-            type="checkbox"
-            className="checkbox"
-            onChange={handleCheckbox}
-            id="upper"
-          />
+          <input type="checkbox" id="upper" />
         </label>
         <label>
           Include Lowercase
-          <input type="checkbox" className="checkbox" id="lower" />
+          <input type="checkbox" id="lower" />
         </label>
         <label>
           Include Numbers
-          <input type="checkbox" className="checkbox" id="number" />
+          <input type="checkbox" id="number" />
         </label>
         <label>
           Include Symbols
-          <input type="checkbox" className="checkbox" id="symbol" />
+          <input type="checkbox" id="symbol" />
         </label>
-        <Button
-          onClick={() => {
-            const input = document.getElementById(
-              'password'
-            ) as HTMLInputElement;
-            const upperEl = document.getElementById(
-              'upper'
-            ) as HTMLInputElement;
-            const lowerEl = document.getElementById(
-              'lower'
-            ) as HTMLInputElement;
-            const numberEl = document.getElementById(
-              'number'
-            ) as HTMLInputElement;
-            const symbolEl = document.getElementById(
-              'symbol'
-            ) as HTMLInputElement;
-
-            if (input) {
-              input.value = generatePassword(
-                passwordLength,
-                upperEl.checked,
-                lowerEl.checked,
-                numberEl.checked,
-                symbolEl.checked
-              );
-            }
-          }}
-        >
-          GENERATE
-        </Button>
+        <Button onClick={handlePasswordGenerate}>GENERATE</Button>
       </Card>
     </Container>
   );
