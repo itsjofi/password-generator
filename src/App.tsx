@@ -56,21 +56,22 @@ const App = (): JSX.Element => {
           Include Uppercase
           <input
             type="checkbox"
+            className="checkbox"
             onChange={handleCheckbox}
             id="upper"
           />
         </label>
         <label>
           Include Lowercase
-          <input type="checkbox" id="lower" />
+          <input type="checkbox" className="checkbox" id="lower" />
         </label>
         <label>
           Include Numbers
-          <input type="checkbox" id="number" />
+          <input type="checkbox" className="checkbox" id="number" />
         </label>
         <label>
           Include Symbols
-          <input type="checkbox" id="symbol" />
+          <input type="checkbox" className="checkbox" id="symbol" />
         </label>
         <Button
           onClick={() => {

@@ -6,8 +6,9 @@ export const Button = styled.button`
   border-radius: 6px;
   padding: 8px;
   font-size: 1rem;
-  color: #000;
-  background: #32e0c4;
+  color: #fff;
+  font-weight: 700;
+  background: #173f5f;
 
   &:hover {
     cursor: pointer;
@@ -17,7 +18,7 @@ export const Button = styled.button`
 `;
 
 export const Container = styled.div`
-  /* background: #eeeeee; */
+  background: #eeeeee;
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -28,9 +29,10 @@ export const Container = styled.div`
 export const Card = styled.div`
   display: flex;
   flex-direction: column;
-  background: #eeeeee;;
+  background: #fff;
   color: #000;
   padding: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.06) 0px 3px 6px 0px;
   border-radius: 8px;
 
   & > label {
@@ -49,7 +51,7 @@ export const TextField = styled.div`
   box-sizing: border-box;
   display: flex;
   align-items: center;
-  background: #32e0c4;
+  background: #173f5f;
 
   & > input {
     padding: 1rem;

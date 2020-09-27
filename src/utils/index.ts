@@ -1,11 +1,3 @@
-// const secureMathRandom = (): number => {
-//   return (
-//     window.crypto.getRandomValues(new Uint32Array(1))[0] / (Math.pow(2, 32) - 1)
-//   );
-// };
-
-import { types } from 'util';
-
 const getRandomNumber = (): string => {
   const numbers = '0123456789';
 
